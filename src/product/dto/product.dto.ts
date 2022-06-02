@@ -1,5 +1,5 @@
+import { ApiProperty } from '@nestjs/swagger';
 export class GetDiscountDto {
   productName: string;
-  userId?: string;
   invoiceFinalAmount: number;
 }

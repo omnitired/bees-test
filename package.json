@@ -7,6 +7,7 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
+    "seed:gen": "nestjs-command seed",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
@@ -22,7 +23,14 @@
   "dependencies": {
     "@nestjs/common": "^8.1.1",
     "@nestjs/core": "^8.1.1",
+    "@nestjs/jwt": "^8.0.1",
+    "@nestjs/mongoose": "^9.1.0",
+    "@nestjs/passport": "^8.2.1",
     "@nestjs/platform-express": "^8.1.1",
+    "dotenv": "^16.0.1",
+    "mongoose": "^6.3.5",
+    "nestjs-command": "^3.1.1",
+    "passport-jwt": "^4.0.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.4.0"

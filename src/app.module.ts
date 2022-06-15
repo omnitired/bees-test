@@ -12,7 +12,7 @@ import { UserModule } from './user/user.module';
 @Module({
   imports: [
     CommandModule,
-    MongooseModule.forRoot('mongodb://localhost/bees'),
+    MongooseModule.forRoot(process.env.MONGO_CONNECTION_STRING),
     ProductModule,
     CategoryModule,
     UserModule,

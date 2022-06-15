@@ -26,19 +26,19 @@ export class ProductService {
       return product.discountPercentage;
     }
 
-    let parentName = product.category;
-    while (true) {
-      const category = await this.categoryService.readByName(parentName);
-      if (category.discountPercentage > -1) {
-        return category.discountPercentage;
-      }
-      if (!category.parent) {
-        break;
-      }
-      parentName = category.parent;
-    }
+    const parentDiscount = this.getParentDiscount(product.category);
+    return parentDiscount;
+  }
 
-    return -1;
+  async getParentDiscount(parentName) {
+    const category = await this.categoryService.readByName(parentName);
+    if (category.discountPercentage > -1) {
+      return category.discountPercentage;
+    }
+    if (!category.parent) {
+      return -1;
+    }
+    return this.getParentDiscount(category.parent);
   }
 
   async create(product: Product): Promise<Product> {

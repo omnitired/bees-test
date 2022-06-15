@@ -9,6 +9,14 @@ export class AuthController {
 
   // @UsePipes(new ValidationPipe())
   @Post('login')
+  @ApiBody({
+    schema: {
+      type: 'object',
+      example: {
+        mobileNumber: '09121234567',
+      },
+    },
+  })
   async login(@Body() loginDto: LoginDto): Promise<LoginResponseDto> {
     return await this.authService.login(loginDto);
   }

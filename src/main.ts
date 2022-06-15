@@ -11,6 +11,10 @@ async function bootstrap() {
     .setDescription('Bees Test API description')
     .setVersion('1.0')
     .addTag('products')
+    .addBearerAuth(
+      { type: 'http', scheme: 'bearer', bearerFormat: 'JWT' },
+      'bearerAuth',
+    )
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
